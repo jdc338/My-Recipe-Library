@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recipe Search</title>
+</head>
+<body>
+    <h1>Recipe Search</h1>
+    <form action="/recipes/search" method="GET">
+      <label for="query">Search for Recipes:</label>
+      <input type="text" name="q" id="query" required>
+      <button type="submit">Search</button>
+    </form>
+
+
+    <h2>Search Results:</h2>
+    <ul>
+        {% for recipe in recipes %}
+        <li>
+            <h3>{{ recipe.recipe.label }}</h3>
+            <p>Source: {{ recipe.recipe.source }}</p>
+            <p>Ingredients: {{ recipe.recipe.ingredientLines | join(', ') }}</p>
+            <p><a href="{{ recipe.recipe.url }}" target="_blank">View Recipe</a></p>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

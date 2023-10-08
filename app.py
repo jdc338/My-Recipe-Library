@@ -1,32 +1,10 @@
-from flask import Flask, jsonify
+from flask import Flask
+from recipe_routes import recipes_bp  # Import the Blueprint
 
 app = Flask(__name__)
 
-@app.route('/')
-def hello():
-    return 'Hello, World!'
-
-recipes = [
-    {
-        'id': 1,
-        'name': 'Spaghetti Carbonara',
-        'ingredients': ['Spaghetti', 'Eggs', 'Guanciale', 'Pecorino cheese', 'Black pepper'],
-        'instructions': '...'
-    },
-    {
-        'id': 2,
-        'name': 'Chicken Alfredo',
-        'ingredients': ['Fettuccine', 'Chicken', 'Heavy cream', 'Parmesan cheese'],
-        'instructions': '...'
-    },
-    # Add more recipes here
-]
-
-@app.route('/api/recipes', methods=['GET'])
-def get_recipes():
-    return jsonify(recipes)
+# Register the Blueprint with the Flask app
+app.register_blueprint(recipes_bp, url_prefix='/recipes')
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-# Inside your Flask app (app.py)
