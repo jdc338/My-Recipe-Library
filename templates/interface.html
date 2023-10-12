@@ -14,14 +14,15 @@
 
     <h2>Search Results:</h2>
     <ul>
-        {% for recipe in recipes %}
-        <li>
-            <h3>{{ recipe.recipe.label }}</h3>
-            <p>Source: {{ recipe.recipe.source }}</p>
-            <p>Ingredients: {{ recipe.recipe.ingredientLines | join(', ') }}</p>
-            <p><a href="{{ recipe.recipe.url }}" target="_blank">View Recipe</a></p>
-        </li>
-        {% endfor %}
-    </ul>
+      {% for recipe in recipes %}
+      <li>
+          <h3>{{ recipe.title }}</h3>
+          <p>Source: {{ recipe.sourceName }}</p>
+          <p>Ingredients: {{ recipe.usedIngredients | map(attribute='name') | join(', ') }}</p>
+          <p><a href="{{ recipe.sourceUrl }}" target="_blank">View Recipe</a></p>
+      </li>
+      {% endfor %}
+  </ul>
+
 </body>
 </html>

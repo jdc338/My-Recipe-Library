@@ -1,6 +1,7 @@
+
 from flask import Blueprint, jsonify, render_template, request
-import requests
-import os
+import requests  # Import the requests library
+
 # Define a Blueprint for your recipe-related routes
 recipes_bp = Blueprint('recipes', __name__)
 
@@ -9,13 +10,13 @@ def recipe_search():
     # Get the user's search query from the URL parameters
     query = request.args.get('q')
 
-    # You can put your API keys here or load them from environment variables
-    edamam_app_id = os.environ.get('EDAMAM_APP_ID')
-    edamam_api_key = os.environ.get('EDAMAM_API_KEY')
+    # Replace 'YOUR_API_KEY' with your actual Spoonacular API key
+    api_key = 'bff40525d23043138c1ca9561fd38662'
 
-    # Make a request to an external API (replace with your desired API)
-    url = f'https://api.edamam.com/search?q={query}&app_id={edamam_app_id}&app_key={edamam_api_key}'
+    # Construct the URL with your API key
+    url = f'https://api.spoonacular.com/recipes/search?query={query}&apiKey={api_key}'
 
+    # Make a request to the Spoonacular API
     response = requests.get(url)
 
     if response.status_code == 200:
@@ -23,10 +24,10 @@ def recipe_search():
         data = response.json()
 
         # Extract relevant recipe data from the response
-        recipes = data.get('hits', [])
+        recipes = data.get('results', [])
 
-        # Render a template with the search results
-        return render_template('search_results.html', recipes=recipes)
+        # Render the search.html template with the search results
+        return render_template('interface.html', recipes=recipes)
     else:
         # Handle API errors
-        return jsonify({'error': 'Failed to fetch recipes from the API'}), 500
+        return jsonify({'error': 'Failed to fetch recipes from Spoonacular API'}), 500
