@@ -1,6 +1,6 @@
 export const fetchRecipes = async (query) => {
   try {
-    const response = await fetch(`/recipes/search?q=${query}`);
+    const response = await fetch(`http://127.0.0.1:5000/recipes/search?q=${query}`);
     if (!response.ok) {
       throw new Error('Failed to fetch recipes');
     }
@@ -11,3 +11,5 @@ export const fetchRecipes = async (query) => {
     return { hits: [] }; // Return an empty array in case of an error
   }
 };
+
+
