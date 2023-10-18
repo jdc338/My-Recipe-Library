@@ -1,4 +1,3 @@
-// App.js
 import React from 'react';
 import './App.css';
 import RecipeList from './RecipeList'; // Import the RecipeList component

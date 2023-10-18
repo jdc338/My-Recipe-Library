@@ -18,8 +18,11 @@ const RecipeList = () => {
         placeholder="Search for recipes"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
+        id="searchQuery"
+        name="searchQuery"
       />
       <button onClick={searchRecipes}>Search</button>
+      <h2>Search Results:</h2>
       <ul>
         {recipes.map((recipe) => (
           <li key={recipe.recipe.uri}>
@@ -37,3 +40,5 @@ const RecipeList = () => {
 };
 
 export default RecipeList;
+
+
