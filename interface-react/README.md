@@ -1,70 +1,114 @@
-# Getting Started with Create React App
+# Recipe Data Analysis
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Objective
 
-## Available Scripts
+The Recipe Data Analysis project aims to collect, process, and analyze recipe data from the Spoonacular API. It enables users to search for recipes based on their preferences, view recipe details, and discover new cooking ideas. This application simplifies the process of finding and exploring recipes, making it an excellent tool for home cooks and food enthusiasts.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Recipe Data Retrieval**: Fetches recipe data from the Spoonacular API, ensuring a diverse selection of recipes.
+- **User-Friendly Search**: Allows users to search for recipes by keywords, ingredients, cuisine, and dietary preferences.
+- **Detailed Recipe Information**: Provides detailed information for each recipe, including ingredients, instructions, and nutritional facts.
+- **Save and Organize**: Users can save their favorite recipes, create collections, and organize their cooking inspiration.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies Used
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Recipe API
 
-### `npm test`
+The project utilizes the Spoonacular API to collect recipe data, providing a wide range of cooking ideas.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [Spoonacular API](https://spoonacular.com/food-api)
 
-### `npm run build`
+### Frontend Framework
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The frontend of the application is built using a modern JavaScript framework, making it highly interactive and user-friendly.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [React](https://reactjs.org/)
+- [Material-UI](https://mui.com/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Backend
 
-### `npm run eject`
+The backend of the application handles data processing, database management, and user authentication.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- [Python](https://www.python.org/)
+- [Flask](https://flask.palletsprojects.com/)
+- [MongoDB](https://www.mongodb.com/)
+- [JWT Authentication](https://jwt.io/)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Setup
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Prerequisites
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Python 3.x
+2. Pip (Python Package Manager)
+3. MongoDB (for database storage)
 
-## Learn More
+### Installation
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Clone the repository.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    ```bash
+    git clone git@github.com:yourusername/recipe-data-analysis.git
+    ```
 
-### Code Splitting
+2. Navigate into the directory.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    ```bash
+    cd recipe-data-analysis
+    ```
 
-### Analyzing the Bundle Size
+3. Install the required packages for both the frontend and backend.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    ```bash
+    # Frontend
+    cd frontend
+    npm install
 
-### Making a Progressive Web App
+    # Backend
+    cd ../backend
+    pip install -r requirements.txt
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### API Keys
 
-### Advanced Configuration
+1. You'll need an API key from Spoonacular.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+2. Create a file named `.env` in the `backend` directory.
 
-### Deployment
+3. Store your API keys and other environment variables in the `.env` file. For example:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+    ```
+    SPOONACULAR_API_KEY=YOUR_API_KEY
+    MONGODB_URI=YOUR_MONGODB_URI
+    JWT_SECRET=YOUR_SECRET_KEY
+    ```
 
-### `npm run build` fails to minify
+4. Make sure to add `.env` to your `.gitignore` file to keep your secrets safe.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Usage
+
+To start the application:
+
+1. Start the backend server.
+
+    ```bash
+    cd backend
+    python app.py
+    ```
+
+2. Start the frontend development server.
+
+    ```bash
+    cd frontend
+    npm start
+    ```
+
+3. Open your web browser and navigate to `http://localhost:3000` to access the Recipe Data Analysis application.
+
+## Contributors
+
+- [James Corfe](https://github.com/jdc338)
+
+Feel free to contribute and make this project even more amazing!
+
+**Happy cooking and enjoy the recipes!**
